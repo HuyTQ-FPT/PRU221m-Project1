@@ -5061,48 +5061,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path:
     points:
-    - {x: -790.4565, y: -141.4745}
-    - {x: -741.9566, y: -135.62723}
-    - {x: -685.23065, y: -130.67543}
+    - {x: -712.89606, y: -124.61355}
+    - {x: -654.27954, y: -122.138435}
+    - {x: -638.0199, y: -130.67545}
     - {x: -599.88696, y: -128.48257}
-    - {x: -517.6455, y: -126.36943}
-    - {x: -260.86166, y: -143.85907}
-    - {x: -214.42151, y: -123.60278}
-    - {x: -174.2951, y: -106.10043}
-    - {x: -170.0643, y: -55.187473}
-    - {x: -158.45631, y: -12.977135}
-    - {x: -149.5521, y: 19.401443}
-    - {x: -143.08275, y: 36.069656}
-    - {x: -121.53949, y: 50.855515}
-    - {x: -95.44709, y: 68.763596}
-    - {x: -29.536713, y: 65.57065}
+    - {x: -517.75415, y: -123.759445}
+    - {x: -237.77386, y: -133.65292}
+    - {x: -189.2647, y: -119.02881}
+    - {x: -142.39395, y: -104.89863}
+    - {x: -155.37369, y: -81.42948}
+    - {x: -153.8823, y: -35.846966}
+    - {x: -152.78418, y: -2.2843132}
+    - {x: -152.23074, y: 39.441833}
+    - {x: -130.6875, y: 54.22769}
+    - {x: -104.5951, y: 72.13577}
+    - {x: -53.142097, y: 65.57066}
     - {x: 0.3775711, y: 66.06102}
-    - {x: 29.458252, y: 66.53773}
-    - {x: 99.73967, y: 68.05411}
-    - {x: 123.18966, y: 47.916256}
-    - {x: 148.34222, y: 26.316303}
-    - {x: 140.33113, y: 8.953836}
-    - {x: 154.0476, y: -19.909576}
-    - {x: 174.03207, y: -61.962658}
-    - {x: 157.07608, y: -69.99362}
-    - {x: 184.82199, y: -103.0141}
-    - {x: 204.1785, y: -126.050316}
-    - {x: 231.37146, y: -132.34863}
-    - {x: 274.28537, y: -134.08553}
-    - {x: 350.71448, y: -137.17891}
+    - {x: 29.460949, y: 66.327484}
+    - {x: 118.03547, y: 74.91505}
+    - {x: 141.48546, y: 54.777195}
+    - {x: 166.63802, y: 33.177242}
+    - {x: 164.36978, y: 1.9299698}
+    - {x: 164.16425, y: -30.026184}
+    - {x: 163.91547, y: -68.70711}
+    - {x: 163.82031, y: -83.48238}
+    - {x: 181.44962, y: -119.87508}
+    - {x: 194.56717, y: -146.95404}
+    - {x: 235.94547, y: -134.6356}
+    - {x: 278.85938, y: -136.3725}
+    - {x: 355.28848, y: -139.46588}
     - {x: 406.57562, y: -130.12866}
     - {x: 563.11035, y: -127.63815}
     - {x: 718.27924, y: -125.16937}
-    - {x: 589.2782, y: -134.6379}
-    - {x: 744.4391, y: -131.70845}
+    - {x: 619.628, y: -127.893486}
+    - {x: 774.7889, y: -124.96404}
     isClosed: 0
     autoSetControlPoints: 0
-  anchorCol: {r: 0.090547085, g: 1, b: 0, a: 1}
+  anchorCol: {r: 0.53333336, g: 0.53333336, b: 0.53333336, a: 1}
   controlCol: {r: 0.7924528, g: 0.31701556, b: 0.025418244, a: 1}
   segmentCol: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 1}
   selectedSegmentCol: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  anchorDiameter: 12
-  controlDiameter: 8
+  anchorDiameter: 15
+  controlDiameter: 10
   displayControlPoints: 1
 --- !u!1001 &910109580
 PrefabInstance:
@@ -5363,7 +5363,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1087949917}
-  - component: {fileID: 1087949916}
   - component: {fileID: 1087949921}
   - component: {fileID: 1087949920}
   - component: {fileID: 1087949923}
@@ -5375,26 +5374,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1087949916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1087949915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25eacce8884fe6b46ba842d0d63a4c62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitialMoney: 100
-  Level: 1
-  VictoryText: {fileID: 0}
-  GameOverText: {fileID: 0}
-  InitialTurretPrice: 100
-  InitialRocketPrice: 0
-  TurretPriceAddition: 50
-  RocketPriceAddition: 300
 --- !u!4 &1087949917
 Transform:
   m_ObjectHideFlags: 0
@@ -5442,17 +5421,17 @@ MonoBehaviour:
     RestTime: 5
   - Amount: 5
     Enemy: {fileID: 1141339285231944, guid: 2b4be0333c134ad478dfc8f4bd8c7f23, type: 3}
-    SpawnTime: 3
+    SpawnTime: 1
     RestTime: 5
   - Amount: 10
     Enemy: {fileID: 1141339285231944, guid: 2b4be0333c134ad478dfc8f4bd8c7f23, type: 3}
     SpawnTime: 1.5
     RestTime: 5
-  - Amount: 20
+  - Amount: 15
     Enemy: {fileID: 1141339285231944, guid: 2b4be0333c134ad478dfc8f4bd8c7f23, type: 3}
     SpawnTime: 0.75
     RestTime: 5
-  - Amount: 50
+  - Amount: 3
     Enemy: {fileID: 1141339285231944, guid: 2b4be0333c134ad478dfc8f4bd8c7f23, type: 3}
     SpawnTime: 0.4
     RestTime: 5
@@ -5568,7 +5547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47110a688f7e1ab4e9d2c4c72dc6c025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartCapacity: 10
   PooledObjects:
   - {fileID: 1141339285231944, guid: 2b4be0333c134ad478dfc8f4bd8c7f23, type: 3}
 --- !u!1 &1111842580

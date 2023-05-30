@@ -11,22 +11,11 @@ public class Pool : MonoBehaviour
 		{
 			if (poolInstance == null)
 				poolInstance = FindObjectOfType<Pool>();
+
 			return poolInstance;
 		}
 	}
 
-	private class SinglePool
-	{
-		public HashSet<GameObject> Active;
-		public Queue<GameObject> Available;
-
-		public SinglePool()
-		{
-			Available = new Queue<GameObject>();
-		}
-	}
-
-	public int StartCapacity = 10;
 	public GameObject[] PooledObjects;
 
 	private Dictionary<string, GameObject> pooledObjects = new Dictionary<string, GameObject>();
@@ -45,13 +34,6 @@ public class Pool : MonoBehaviour
 		if (pooledObjects.ContainsKey(prototype.tag)) return;
 
 		var singlePool = new Queue<GameObject>();
-		for (var i = 0; i < StartCapacity; i++)
-		{
-			var newItem = Instantiate(prototype, transform);
-			newItem.SetActive(false);
-			singlePool.Enqueue(newItem);
-		}
-
 		pooledObjects.Add(prototype.tag, prototype);
 		pool.Add(prototype.tag, singlePool);
 	}
@@ -74,14 +56,4 @@ public class Pool : MonoBehaviour
 		return item;
 	}
 
-	public void DeactivateObject(GameObject item)
-	{
-		if (!pooledObjects.ContainsKey(item.tag))
-			throw new KeyNotFoundException();
-
-		var singlePool = pool[item.tag];
-
-		item.SetActive(false);
-		singlePool.Enqueue(item);
-	}
 }

@@ -6,121 +6,67 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-	private static GameManager gameManagerInstance;
-	public static GameManager Instance
-	{
-		get
-		{
-			if (gameManagerInstance == null)
-				gameManagerInstance = FindObjectOfType<GameManager>();
+    private static GameManager gameManagerInstance;
+    public static GameManager Instance
+    {
+        get
+        {
+            if (gameManagerInstance == null)
+                gameManagerInstance = FindObjectOfType<GameManager>();
 
-			return gameManagerInstance;
-		}
-	}
+            return gameManagerInstance;
+        }
+    }
 
-	public const int MaxLives = 5;
-	public int InitialMoney;
+    public const int MaxLives = 5;
+    public int InitialMoney;
 
-	public int Level;
-	public GameObject VictoryText;
-	public GameObject GameOverText;
+    public int Level;
+    public GameObject VictoryText;
+    public GameObject GameOverText;
 
-	public int InitialTurretPrice;
-	public int InitialRocketPrice;
-	public int TurretPriceAddition;
-	public int RocketPriceAddition;
+    public static int Lives;
+    private int money;
 
-	private int turretPrice;
-	private int rocketPrice;
+    private int remainingEnemies;
 
-	public static int Lives;
-	private int money;
-
-	private int remainingEnemies;
-
-	// Use this for initialization
-	void Start()
-	{
-		money = InitialMoney;
-
-		turretPrice = InitialTurretPrice;
-		rocketPrice = InitialRocketPrice;
+    // Use this for initialization
+    void Start ()
+    {
+        money = InitialMoney;
 
 
-		remainingEnemies = GetComponent<EnemySpawner>().Waves.Sum(w => w.Amount);
-	}
+        remainingEnemies = GetComponent<EnemySpawner>().Waves.Sum(w => w.Amount);
+    }
 
-	public void EnemyKilled(GameObject enemy)
-	{
-		remainingEnemies--;
-		if (remainingEnemies == 0) Victory();
-	}
+    public void EnemyEscaped(GameObject enemy)
+    {
+        Lives--;
 
-	public int GetMoney()
-	{
-		return money;
-	}
+        if (Lives <= 0)
+        {
+            GameOver();
+        }
 
-	public void AddMoney(int value)
-	{
-		money += value;
-	}
+        remainingEnemies--;
+        if(remainingEnemies == 0) Victory();
+    }
 
-	public void TurretBuilt(GameObject turret)
-	{
-		if (turret.CompareTag("turretTower"))
-		{
-			money -= turretPrice;
-			turretPrice += TurretPriceAddition;
-		}
-		else
-		{
-			money -= rocketPrice;
-			rocketPrice += RocketPriceAddition;
-		}
-
-	}
+    public void Victory()
+    {
+        VictoryText.SetActive(true);
+        Invoke("NextLevel", 5.0f);
+    }
+    
+    public void GameOver()
+    {
+        GameOverText.SetActive(true);
+        Invoke("BackToMainMenu", 5.0f);
+    }
 
 
-	public bool EnoughMoneyForTurret(string tag)
-	{
-		if (tag == "turretTower")
-			return money >= turretPrice;
-
-		return money >= rocketPrice;
-	}
-
-	public int MoneyForTurret(string tag)
-	{
-		return tag == "turretTower" ? turretPrice : rocketPrice;
-	}
-
-	public void Victory()
-	{
-		VictoryText.SetActive(true);
-		Invoke("NextLevel", 5.0f);
-	}
-
-	public void GameOver()
-	{
-		GameOverText.SetActive(true);
-		Invoke("BackToMainMenu", 5.0f);
-	}
-
-	public void NextLevel()
-	{
-		if (Level <= 2)
-		{
-			SceneManager.LoadScene("Level_0" + (Level + 1));
-		}
-		else
-		{
-			SceneManager.LoadScene("Menu_screen");
-		}
-	}
-
-	public void BackToMainMenu()
-	{
-		SceneManager.LoadScene("Menu_screen");
-	}
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("Menu_screen");
+    }
 }
